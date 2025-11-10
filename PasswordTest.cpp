@@ -73,7 +73,7 @@ TEST(PasswordTest, all_uppercase)
     ASSERT_FALSE(my_password.has_mixed_case("ABC"));
 }
 
-TEST(PasswordTest, empty)
+TEST(PasswordTest, empty_string)
 {
     Password my_password;
     ASSERT_FALSE(my_password.has_mixed_case(""));
