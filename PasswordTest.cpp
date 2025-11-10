@@ -50,3 +50,37 @@ TEST(PasswordTest, symbols)
 	Password my_password;
 	ASSERT_EQ(2, my_password.count_leading_characters("$$$#"));
 }
+
+
+
+//mixed_case_tests
+
+TEST(PasswordTest, mixed_case)
+{
+    Password my_password;
+    ASSERT_TRUE(my_password.has_mixed_case("Abc"));
+}
+
+TEST(PasswordTest, all_lowercase)
+{
+    Password my_password;
+    ASSERT_FALSE(my_password.has_mixed_case("abc"));
+}
+
+TEST(PasswordTest, all_uppercase)
+{
+    Password my_password;
+    ASSERT_FALSE(my_password.has_mixed_case("ABC"));
+}
+
+TEST(PasswordTest, empty)
+{
+    Password my_password;
+    ASSERT_FALSE(my_password.has_mixed_case(""));
+}
+
+TEST(PasswordTest, symbols_and_numbers)
+{
+    Password my_password;
+    ASSERT_FALSE(my_password.has_mixed_case("12$#"));
+}
